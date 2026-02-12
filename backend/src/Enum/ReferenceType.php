@@ -4,6 +4,8 @@ namespace App\Enum;
 
 enum ReferenceType: string
 {
-    case SOME_VALUE = 'some_value';
-    // ... add your cases
+    case DISPATCH = 'dispatch';
+    case VOUCHER = 'voucher';
+    case TRANSFER = 'transfer';
+    case MANUAL = 'manual';
 }

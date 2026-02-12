@@ -4,6 +4,8 @@ namespace App\Enum;
 
 enum StockMovementType: string
 {
-    case SOME_VALUE = 'some_value';
-    // ... add your cases
+    case IN = 'in';
+    case OUT = 'out';
+    case TRANSFER = 'transfer';
+    case ADJUSTMENT = "adjustment";
 }

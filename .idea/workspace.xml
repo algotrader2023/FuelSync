@@ -5,28 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9fa47154-d8bc-471e-b033-b9f4cbd7dd64" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/FuelSync.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/Enum/DispatchStatus.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/Enum/ReferenceType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/Enum/SeverityType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/Enum/StationAlertType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/Enum/StationStatus.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/Enum/StationType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/Enum/StockMovementType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/Enum/VehicleType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/Enum/EquipmentType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/Enum/MaintenanceType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/Enum/VoucherStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/compose.override.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/compose.override.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/config/reference.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/config/reference.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/backend/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/landing/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/landing/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/landing/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Entity/AuditLog.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/AuditLog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Entity/Dispatch.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/Dispatch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Entity/DispatchUnloading.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/DispatchUnloading.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Entity/RolePermission.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/RolePermission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Entity/Station.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/Station.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Entity/StationAlert.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/StationAlert.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Entity/StockMovement.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/StockMovement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Entity/Tank.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/Tank.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Entity/Vehicle.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Entity/Vehicle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Enum/DispatchStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/DispatchStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Enum/ReferenceType.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/ReferenceType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Enum/SeverityType.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/SeverityType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Enum/StationAlertType.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/StationAlertType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Enum/StationStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/StationStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Enum/StationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/StationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Enum/StockMovementType.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/StockMovementType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/Enum/VehicleType.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/Enum/VehicleType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/landing/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/landing/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +50,16 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands>
+      <McpServerConfigurationProperties>
+        <option name="allowedToolsNames" />
+        <option name="enabled" value="false" />
+        <option name="name" value="angular-cli" />
+      </McpServerConfigurationProperties>
+    </commands>
+    <urls />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="$PROJECT_DIR$/../../../../../../xampp/php/php.exe">
     <include_path>
@@ -325,6 +337,7 @@
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -365,7 +378,8 @@
       <workItem from="1770712675796" duration="1486000" />
       <workItem from="1770715608118" duration="852000" />
       <workItem from="1770716825930" duration="6336000" />
-      <workItem from="1770808930011" duration="11381000" />
+      <workItem from="1770808930011" duration="11573000" />
+      <workItem from="1770891981659" duration="13815000" />
     </task>
     <servers />
   </component>

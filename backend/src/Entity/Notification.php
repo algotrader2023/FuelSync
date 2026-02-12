@@ -2,38 +2,33 @@
 
 namespace App\Entity;
 
-use App\Enum\SeverityType;
-use App\Enum\StationAlertType;
-use App\Repository\StationAlertRepository;
+use App\Repository\NotificationRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: StationAlertRepository::class)]
-class StationAlert
+#[ORM\Entity(repositoryClass: NotificationRepository::class)]
+class Notification
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(enumType: StationAlertType::class)]
-    private ?StationAlertType $type = null;
-
-    #[ORM\Column(enumType: SeverityType::class)]
-    private ?SeverityType $severity = null;
+    #[ORM\Column(length: 255)]
+    private ?string $type = null;
 
     #[ORM\Column(length: 255)]
     private ?string $message = null;
 
     #[ORM\Column]
-    private ?bool $resolved = null;
+    private ?\DateTimeImmutable $read_at = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Station $station_id = null;
+    private ?User $user_id = null;
 
     public function getId(): ?int
     {
@@ -47,26 +42,14 @@ class StationAlert
         return $this;
     }
 
-    public function getType(): ?StationAlertType
+    public function getType(): ?string
     {
         return $this->type;
     }
 
-    public function setType(StationAlertType $type): static
+    public function setType(string $type): static
     {
         $this->type = $type;
-
-        return $this;
-    }
-
-    public function getSeverity(): ?SeverityType
-    {
-        return $this->severity;
-    }
-
-    public function setSeverity(SeverityType $severity): static
-    {
-        $this->severity = $severity;
 
         return $this;
     }
@@ -83,14 +66,14 @@ class StationAlert
         return $this;
     }
 
-    public function isResolved(): ?bool
+    public function getReadAt(): ?\DateTimeImmutable
     {
-        return $this->resolved;
+        return $this->read_at;
     }
 
-    public function setResolved(bool $resolved): static
+    public function setReadAt(\DateTimeImmutable $read_at): static
     {
-        $this->resolved = $resolved;
+        $this->read_at = $read_at;
 
         return $this;
     }
@@ -107,14 +90,14 @@ class StationAlert
         return $this;
     }
 
-    public function getStationId(): ?Station
+    public function getUserId(): ?User
     {
-        return $this->station_id;
+        return $this->user_id;
     }
 
-    public function setStationId(?Station $station_id): static
+    public function setUserId(?User $user_id): static
     {
-        $this->station_id = $station_id;
+        $this->user_id = $user_id;
 
         return $this;
     }

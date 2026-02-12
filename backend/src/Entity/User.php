@@ -26,12 +26,6 @@ class User
     private ?string $password = null;
 
     #[ORM\Column]
-    private ?int $role_id = null;
-
-    #[ORM\Column]
-    private ?int $station_id = null;
-
-    #[ORM\Column]
     private ?bool $is_active = null;
 
     #[ORM\Column]
@@ -39,6 +33,13 @@ class User
 
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Role $role_id = null;
+
+    #[ORM\ManyToOne]
+    private ?Station $station_id = null;
 
     public function getId(): ?int
     {
@@ -88,30 +89,6 @@ class User
         return $this;
     }
 
-    public function getRoleId(): ?int
-    {
-        return $this->role_id;
-    }
-
-    public function setRoleId(int $role_id): static
-    {
-        $this->role_id = $role_id;
-
-        return $this;
-    }
-
-    public function getStationId(): ?int
-    {
-        return $this->station_id;
-    }
-
-    public function setStationId(int $station_id): static
-    {
-        $this->station_id = $station_id;
-
-        return $this;
-    }
-
     public function isActive(): ?bool
     {
         return $this->is_active;
@@ -144,6 +121,30 @@ class User
     public function setCreatedAt(\DateTimeImmutable $created_at): static
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getRoleId(): ?Role
+    {
+        return $this->role_id;
+    }
+
+    public function setRoleId(?Role $role_id): static
+    {
+        $this->role_id = $role_id;
+
+        return $this;
+    }
+
+    public function getStationId(): ?Station
+    {
+        return $this->station_id;
+    }
+
+    public function setStationId(?Station $station_id): static
+    {
+        $this->station_id = $station_id;
 
         return $this;
     }

@@ -15,9 +15,6 @@ class DispatchUnloading
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?int $dispatch_id = null;
-
-    #[ORM\Column]
     private ?float $empty_weight = null;
 
     #[ORM\Column]
@@ -41,11 +38,16 @@ class DispatchUnloading
     #[ORM\Column(length: 255)]
     private ?string $driver_name = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $validated_by = null;
-
     #[ORM\Column]
     private ?\DateTimeImmutable $validated_at = null;
+
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Dispatch $dispatch_id = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $validated_by = null;
 
     public function getId(): ?int
     {
@@ -55,18 +57,6 @@ class DispatchUnloading
     public function setId(string $id): static
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    public function getDispatchId(): ?int
-    {
-        return $this->dispatch_id;
-    }
-
-    public function setDispatchId(int $dispatch_id): static
-    {
-        $this->dispatch_id = $dispatch_id;
 
         return $this;
     }
@@ -167,18 +157,6 @@ class DispatchUnloading
         return $this;
     }
 
-    public function getValidatedBy(): ?string
-    {
-        return $this->validated_by;
-    }
-
-    public function setValidatedBy(string $validated_by): static
-    {
-        $this->validated_by = $validated_by;
-
-        return $this;
-    }
-
     public function getValidatedAt(): ?\DateTimeImmutable
     {
         return $this->validated_at;
@@ -187,6 +165,30 @@ class DispatchUnloading
     public function setValidatedAt(\DateTimeImmutable $validated_at): static
     {
         $this->validated_at = $validated_at;
+
+        return $this;
+    }
+
+    public function getDispatchId(): ?Dispatch
+    {
+        return $this->dispatch_id;
+    }
+
+    public function setDispatchId(Dispatch $dispatch_id): static
+    {
+        $this->dispatch_id = $dispatch_id;
+
+        return $this;
+    }
+
+    public function getValidatedBy(): ?User
+    {
+        return $this->validated_by;
+    }
+
+    public function setValidatedBy(?User $validated_by): static
+    {
+        $this->validated_by = $validated_by;
 
         return $this;
     }

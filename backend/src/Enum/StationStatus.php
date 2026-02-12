@@ -4,6 +4,7 @@ namespace App\Enum;
 
 enum StationStatus: string
 {
-    case SOME_VALUE = 'some_value';
-    // ... add your cases
+    case URGENT = 'urgent';
+    case REFILL = "refill";
+    case ACCEPTABLE = 'acceptable';
 }

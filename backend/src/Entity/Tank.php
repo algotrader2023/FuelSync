@@ -14,14 +14,8 @@ class Tank
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $station_id = null;
-
     #[ORM\Column(length: 255)]
     private ?string $name = null;
-
-    #[ORM\Column]
-    private ?int $fuel_type_id = null;
 
     #[ORM\Column]
     private ?float $capacity_liters = null;
@@ -35,6 +29,14 @@ class Tank
     #[ORM\Column]
     private ?float $max_threshold = null;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Station $station_id = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?FuelType $fuel_type_id = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -47,18 +49,6 @@ class Tank
         return $this;
     }
 
-    public function getStationId(): ?int
-    {
-        return $this->station_id;
-    }
-
-    public function setStationId(int $station_id): static
-    {
-        $this->station_id = $station_id;
-
-        return $this;
-    }
-
     public function getName(): ?string
     {
         return $this->name;
@@ -67,18 +57,6 @@ class Tank
     public function setName(string $name): static
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getFuelTypeId(): ?int
-    {
-        return $this->fuel_type_id;
-    }
-
-    public function setFuelTypeId(int $fuel_type_id): static
-    {
-        $this->fuel_type_id = $fuel_type_id;
 
         return $this;
     }
@@ -127,6 +105,30 @@ class Tank
     public function setMaxThreshold(float $max_threshold): static
     {
         $this->max_threshold = $max_threshold;
+
+        return $this;
+    }
+
+    public function getStationId(): ?Station
+    {
+        return $this->station_id;
+    }
+
+    public function setStationId(?Station $station_id): static
+    {
+        $this->station_id = $station_id;
+
+        return $this;
+    }
+
+    public function getFuelTypeId(): ?FuelType
+    {
+        return $this->fuel_type_id;
+    }
+
+    public function setFuelTypeId(?FuelType $fuel_type_id): static
+    {
+        $this->fuel_type_id = $fuel_type_id;
 
         return $this;
     }

@@ -15,9 +15,6 @@ class Vehicle
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $transporter_id = null;
-
     #[ORM\Column(length: 255)]
     private ?string $plate_number = null;
 
@@ -36,6 +33,10 @@ class Vehicle
     #[ORM\Column]
     private ?\DateTime $calibration_expiry = null;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Transporter $transporter_id = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,18 +45,6 @@ class Vehicle
     public function setId(string $id): static
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    public function getTransporterId(): ?int
-    {
-        return $this->transporter_id;
-    }
-
-    public function setTransporterId(int $transporter_id): static
-    {
-        $this->transporter_id = $transporter_id;
 
         return $this;
     }
@@ -128,6 +117,18 @@ class Vehicle
     public function setCalibrationExpiry(\DateTime $calibration_expiry): static
     {
         $this->calibration_expiry = $calibration_expiry;
+
+        return $this;
+    }
+
+    public function getTransporterId(): ?Transporter
+    {
+        return $this->transporter_id;
+    }
+
+    public function setTransporterId(?Transporter $transporter_id): static
+    {
+        $this->transporter_id = $transporter_id;
 
         return $this;
     }

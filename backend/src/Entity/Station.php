@@ -25,9 +25,6 @@ class Station
     #[ORM\Column(length: 255)]
     private ?string $location = null;
 
-    #[ORM\Column]
-    private ?int $manager_id = null;
-
     #[ORM\Column(enumType: StationStatus::class)]
     private ?StationStatus $status = null;
 
@@ -78,18 +75,6 @@ class Station
     public function setLocation(string $location): static
     {
         $this->location = $location;
-
-        return $this;
-    }
-
-    public function getManagerId(): ?int
-    {
-        return $this->manager_id;
-    }
-
-    public function setManagerId(int $manager_id): static
-    {
-        $this->manager_id = $manager_id;
 
         return $this;
     }

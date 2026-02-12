@@ -4,6 +4,7 @@ namespace App\Enum;
 
 enum StationAlertType: string
 {
-    case SOME_VALUE = 'some_value';
-    // ... add your cases
+    case LOW_STOCK = 'low_stock';
+    case VARIANCE = 'variance';
+    case ANOMALY = "anomaly";
 }

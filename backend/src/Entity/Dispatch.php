@@ -16,18 +16,6 @@ class Dispatch
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?int $station_id = null;
-
-    #[ORM\Column]
-    private ?int $supplier_id = null;
-
-    #[ORM\Column]
-    private ?int $transporter_id = null;
-
-    #[ORM\Column]
-    private ?int $vehicle_id = null;
-
-    #[ORM\Column]
     private ?float $planned_volume = null;
 
     #[ORM\Column]
@@ -54,6 +42,22 @@ class Dispatch
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Station $station_id = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Supplier $supplier_id = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Transporter $transporter_id = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Vehicle $vehicle_id = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -62,54 +66,6 @@ class Dispatch
     public function setId(string $id): static
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    public function getStationId(): ?int
-    {
-        return $this->station_id;
-    }
-
-    public function setStationId(int $station_id): static
-    {
-        $this->station_id = $station_id;
-
-        return $this;
-    }
-
-    public function getSupplierId(): ?int
-    {
-        return $this->supplier_id;
-    }
-
-    public function setSupplierId(int $supplier_id): static
-    {
-        $this->supplier_id = $supplier_id;
-
-        return $this;
-    }
-
-    public function getTransporterId(): ?int
-    {
-        return $this->transporter_id;
-    }
-
-    public function setTransporterId(int $transporter_id): static
-    {
-        $this->transporter_id = $transporter_id;
-
-        return $this;
-    }
-
-    public function getVehicleId(): ?int
-    {
-        return $this->vehicle_id;
-    }
-
-    public function setVehicleId(int $vehicle_id): static
-    {
-        $this->vehicle_id = $vehicle_id;
 
         return $this;
     }
@@ -218,6 +174,54 @@ class Dispatch
     public function setCreatedAt(\DateTimeImmutable $created_at): static
     {
         $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getStationId(): ?Station
+    {
+        return $this->station_id;
+    }
+
+    public function setStationId(?Station $station_id): static
+    {
+        $this->station_id = $station_id;
+
+        return $this;
+    }
+
+    public function getSupplierId(): ?Supplier
+    {
+        return $this->supplier_id;
+    }
+
+    public function setSupplierId(?Supplier $supplier_id): static
+    {
+        $this->supplier_id = $supplier_id;
+
+        return $this;
+    }
+
+    public function getTransporterId(): ?Transporter
+    {
+        return $this->transporter_id;
+    }
+
+    public function setTransporterId(?Transporter $transporter_id): static
+    {
+        $this->transporter_id = $transporter_id;
+
+        return $this;
+    }
+
+    public function getVehicleId(): ?Vehicle
+    {
+        return $this->vehicle_id;
+    }
+
+    public function setVehicleId(?Vehicle $vehicle_id): static
+    {
+        $this->vehicle_id = $vehicle_id;
 
         return $this;
     }

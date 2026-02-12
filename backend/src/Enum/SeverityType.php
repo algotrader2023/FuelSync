@@ -4,6 +4,8 @@ namespace App\Enum;
 
 enum SeverityType: string
 {
-    case SOME_VALUE = 'some_value';
-    // ... add your cases
+    case LOW = 'low';
+    case MEDIUM = 'medium';
+    case HIGH = 'high';
+    case CRITICAL = 'critical';
 }

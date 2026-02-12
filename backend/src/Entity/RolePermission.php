@@ -14,11 +14,13 @@ class RolePermission
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $role_id = null;
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Role $role_id = null;
 
-    #[ORM\Column]
-    private ?int $permission_id = null;
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Permission $permission_id = null;
 
     public function getId(): ?int
     {
@@ -32,24 +34,24 @@ class RolePermission
         return $this;
     }
 
-    public function getRoleId(): ?int
+    public function getRoleId(): ?Role
     {
         return $this->role_id;
     }
 
-    public function setRoleId(int $role_id): static
+    public function setRoleId(?Role $role_id): static
     {
         $this->role_id = $role_id;
 
         return $this;
     }
 
-    public function getPermissionId(): ?int
+    public function getPermissionId(): ?Permission
     {
         return $this->permission_id;
     }
 
-    public function setPermissionId(int $permission_id): static
+    public function setPermissionId(?Permission $permission_id): static
     {
         $this->permission_id = $permission_id;
 

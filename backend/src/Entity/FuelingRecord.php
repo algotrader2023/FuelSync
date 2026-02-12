@@ -2,14 +2,12 @@
 
 namespace App\Entity;
 
-use App\Enum\ReferenceType;
-use App\Enum\StockMovementType;
-use App\Repository\StockMovementRepository;
+use App\Repository\FuelingRecordRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: StockMovementRepository::class)]
-class StockMovement
+#[ORM\Entity(repositoryClass: FuelingRecordRepository::class)]
+class FuelingRecord
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -17,22 +15,19 @@ class StockMovement
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $type = null;
+    private ?string $vehicle_name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $json = null;
-
-    #[ORM\Column(enumType: StockMovementType::class)]
-    private ?StockMovementType $mov_type = null;
-
-    #[ORM\Column(enumType: ReferenceType::class)]
-    private ?ReferenceType $reference_type = null;
-
-    #[ORM\Column]
-    private ?int $reference_id = null;
+    private ?string $operator_name = null;
 
     #[ORM\Column]
     private ?float $quantity = null;
+
+    #[ORM\Column]
+    private ?float $start_index = null;
+
+    #[ORM\Column]
+    private ?float $end_index = null;
 
     #[ORM\Column]
     private ?float $variance = null;
@@ -46,7 +41,11 @@ class StockMovement
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Tank $tank_id = null;
+    private ?FuelType $fuel_type_id = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Voucher $voucher_id = null;
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
@@ -64,62 +63,26 @@ class StockMovement
         return $this;
     }
 
-    public function getType(): ?string
+    public function getVehicleName(): ?string
     {
-        return $this->type;
+        return $this->vehicle_name;
     }
 
-    public function setType(string $type): static
+    public function setVehicleName(string $vehicle_name): static
     {
-        $this->type = $type;
+        $this->vehicle_name = $vehicle_name;
 
         return $this;
     }
 
-    public function getJson(): ?string
+    public function getOperatorName(): ?string
     {
-        return $this->json;
+        return $this->operator_name;
     }
 
-    public function setJson(string $json): static
+    public function setOperatorName(string $operator_name): static
     {
-        $this->json = $json;
-
-        return $this;
-    }
-
-    public function getMovType(): ?StockMovementType
-    {
-        return $this->mov_type;
-    }
-
-    public function setMovType(StockMovementType $mov_type): static
-    {
-        $this->mov_type = $mov_type;
-
-        return $this;
-    }
-
-    public function getReferenceType(): ?ReferenceType
-    {
-        return $this->reference_type;
-    }
-
-    public function setReferenceType(ReferenceType $reference_type): static
-    {
-        $this->reference_type = $reference_type;
-
-        return $this;
-    }
-
-    public function getReferenceId(): ?int
-    {
-        return $this->reference_id;
-    }
-
-    public function setReferenceId(int $reference_id): static
-    {
-        $this->reference_id = $reference_id;
+        $this->operator_name = $operator_name;
 
         return $this;
     }
@@ -132,6 +95,30 @@ class StockMovement
     public function setQuantity(float $quantity): static
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    public function getStartIndex(): ?float
+    {
+        return $this->start_index;
+    }
+
+    public function setStartIndex(float $start_index): static
+    {
+        $this->start_index = $start_index;
+
+        return $this;
+    }
+
+    public function getEndIndex(): ?float
+    {
+        return $this->end_index;
+    }
+
+    public function setEndIndex(float $end_index): static
+    {
+        $this->end_index = $end_index;
 
         return $this;
     }
@@ -172,14 +159,26 @@ class StockMovement
         return $this;
     }
 
-    public function getTankId(): ?Tank
+    public function getFuelTypeId(): ?FuelType
     {
-        return $this->tank_id;
+        return $this->fuel_type_id;
     }
 
-    public function setTankId(?Tank $tank_id): static
+    public function setFuelTypeId(?FuelType $fuel_type_id): static
     {
-        $this->tank_id = $tank_id;
+        $this->fuel_type_id = $fuel_type_id;
+
+        return $this;
+    }
+
+    public function getVoucherId(): ?Voucher
+    {
+        return $this->voucher_id;
+    }
+
+    public function setVoucherId(?Voucher $voucher_id): static
+    {
+        $this->voucher_id = $voucher_id;
 
         return $this;
     }
